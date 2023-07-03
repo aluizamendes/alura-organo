@@ -1,0 +1,46 @@
+.card-wrapper {
+    background-color: #FFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.08);
+    min-width: 230px;
+
+}
+
+.card-header {
+    height: 100px;
+    background: green;
+    position: relative;
+}
+
+.card-image {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-header img {
+    object-fit: cover;
+    object-position: center;
+    max-width: 100%;
+
+}
+
+.card-text {
+    margin-top: 40px;
+    padding: 30px 30px;
+    text-align: center;
+}
+
+.card-text h4 {
+    font-size: 20px;
+}
+.card-text h5 {
+    font-size: 18px;
+}

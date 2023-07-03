@@ -1,0 +1,29 @@
+.time-wrapper {
+    padding: 24px 0;
+    padding-inline: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.time-titulo {
+    text-align: center;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.time-titulo h3 {
+    font-size: 24px;
+    border-bottom: 3px solid;
+    margin: 0;
+    padding-bottom: 8px;
+}
+
+.cards {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

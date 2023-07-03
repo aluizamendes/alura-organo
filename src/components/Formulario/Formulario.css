@@ -1,0 +1,28 @@
+.formulario-wrapper {
+    margin-inline: 5%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+}
+
+.formulario .titulo {
+    text-align: center;
+    margin-inline: 10%;
+}
+
+.formulario form {
+    background-color: rgb(242, 244, 247);
+    width: 600px;
+    padding: 24px;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
