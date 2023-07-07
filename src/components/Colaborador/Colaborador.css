@@ -1,16 +1,17 @@
-.card-wrapper {
+.card {
     background-color: #FFF;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.08);
-    min-width: 230px;
-
+    width: 250px;
+    position: relative;
+    /* overflow: hidden; */
 }
 
 .card-header {
     height: 100px;
     background: green;
     position: relative;
+    border-radius: 8px 8px 0px 0px;
 }
 
 .card-image {
@@ -40,7 +41,29 @@
 
 .card-text h4 {
     font-size: 20px;
+    margin-bottom: 8px;
+    line-height: normal;
 }
 .card-text h5 {
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.icon-excluir-container {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    z-index: 1;
+    background-color: #FFF;
+    border-radius: 50%;
+    height: 25px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .4s;
+}
+
+.card:hover .icon-excluir-container{
+    opacity: 1;
+    visibility: visible;
 }

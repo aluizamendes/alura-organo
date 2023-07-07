@@ -16,7 +16,7 @@ const Formulario = (props) => {
         console.log("Form foi submetido =>", nome, cargo, imagem, time)
 
         // envia como parametro da prop um objeto com os dados do colaborador
-        props.aoColaboradorCadastrado({
+        props.aoColaboradorCadastrado( {
             nome,
             cargo,
             imagem,
@@ -37,6 +37,7 @@ const Formulario = (props) => {
                 </div>
                 
                 <div className="formulario-wrapper">
+
                     <form onSubmit={aoSalvar}>
                         <CampoTexto 
                             obrigatorio={true} 
