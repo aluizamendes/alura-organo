@@ -15,7 +15,7 @@ const CampoTexto = ({ obrigatorio, label, placeholder, valor, aoAlterado }) => {
                     onChange={aoDigitado} 
                     required={obrigatorio} 
                     type="text" 
-                    placeholder={placeholder} 
+                    placeholder={placeholder}
                 />
                 
             </div>

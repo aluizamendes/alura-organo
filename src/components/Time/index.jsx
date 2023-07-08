@@ -2,7 +2,7 @@ import Colaborador from '../Colaborador'
 import hexToRgba from 'hex-to-rgba';
 import './Time.css'
 
-const Time = ({ nome, cor, colaboradores, aoDeletar, mudarCor }) => {
+const Time = ({ id, nome, cor, colaboradores, aoDeletar, mudarCor }) => {
     return(
         (colaboradores.length > 0) ?  
 
@@ -14,7 +14,7 @@ const Time = ({ nome, cor, colaboradores, aoDeletar, mudarCor }) => {
                     type="color" 
                     className='input-cor' 
                     value={cor}
-                    onChange={evento => mudarCor(evento.target.value, nome)}
+                    onChange={ (evento) => mudarCor(evento.target.value, id) }
                 />
 
                 <div className='time-titulo'>
@@ -23,7 +23,7 @@ const Time = ({ nome, cor, colaboradores, aoDeletar, mudarCor }) => {
                 <div className='cards'>
                     { colaboradores.map((colaborador) => {
                         //console.log(<Colaborador corDeFundo={props.corPrimaria} key={colaborador.nome} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} aoDeletar={props.aoDeletar} />)
-                        return <Colaborador corDeFundo={cor} key={colaborador.nome} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} aoDeletar={aoDeletar} />
+                        return <Colaborador corDeFundo={cor} key={colaborador.id} id={colaborador.id} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} aoDeletar={aoDeletar} />
                     }) }
                 </div>
 

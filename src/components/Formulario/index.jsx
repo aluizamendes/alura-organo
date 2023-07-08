@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
+import CampoCor from '../CampoCor'
 import './Formulario.css'
 
 const Formulario = (props) => {
@@ -10,6 +12,8 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState("")
     const [imagem, setImagem] = useState("")
     const [time, setTime] = useState("")
+    const [nomeTime, setNomeTime] = useState("")
+    const [corTime, setCorTime] = useState("")
 
     const aoSalvar = (evt) => {
         evt.preventDefault()
@@ -17,6 +21,7 @@ const Formulario = (props) => {
 
         // envia como parametro da prop um objeto com os dados do colaborador
         props.aoColaboradorCadastrado( {
+            id: uuidv4(),
             nome,
             cargo,
             imagem,
@@ -29,14 +34,26 @@ const Formulario = (props) => {
         setTime("")
     }
 
+    const aoCriarTime = (evt) => {
+        evt.preventDefault()
+        props.cadastrarTime({
+            nome: nomeTime,
+            cor: corTime
+        })
+
+        setNomeTime("")
+        setCorTime("")
+    }
+
     return (
         <>
             <section className='formulario'>
-                <div className='titulo'>
-                    <h2>Preencha os dados para criar o card do colaborador</h2>
-                </div>
-                
+                                
                 <div className="formulario-wrapper">
+
+                    <div className='titulo'>
+                        <h2>Preencha os dados para criar o card do colaborador</h2>
+                    </div>
 
                     <form onSubmit={aoSalvar}>
                         <CampoTexto 
@@ -71,6 +88,33 @@ const Formulario = (props) => {
                         </Botao>
                     </form>
                 </div>
+
+                <div className="formulario-wrapper">
+
+                    <div className='titulo'>
+                        <h2>Preencha os dados para criar um novo time</h2>
+                    </div>
+
+                    <form onSubmit={aoCriarTime}>
+                        <CampoTexto 
+                            obrigatorio={true} 
+                            label="Nome" 
+                            placeholder="Digite o nome do time" 
+                            valor={nomeTime}
+                            aoAlterado={valor => setNomeTime(valor)}
+                        />
+                        <CampoCor 
+                            obrigatorio={true} 
+                            label="Cor"
+                            valor={corTime}
+                            aoAlterado={valor => setCorTime(valor)} 
+                        />
+                        <Botao>
+                            Criar time
+                        </Botao>
+                    </form>
+                </div>
+                
             </section>
         </>
     )
