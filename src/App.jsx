@@ -70,6 +70,13 @@ function App() {
     setTimes([...times, { ...novoTime, id: uuidv4() }])
 
   }
+
+  const resolverFavorito = (id) => {
+    setColaboradores(colaboradores.map((colaborador) => {
+      if (colaborador.id === id) colaborador.favorito = !colaborador.favorito
+      return colaborador
+    }))
+  }
   
   return (
     <>
@@ -89,6 +96,7 @@ function App() {
           colaboradores={colaboradores.filter((colaborador) => colaborador.time === time.nome)}
           aoDeletar={deletarColaborador}
           mudarCor={mudarCorDoTime}
+          aoFavoritar={resolverFavorito}
         />
       )}
     </>
