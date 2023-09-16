@@ -1,8 +1,19 @@
 import Colaborador from '../Colaborador'
 import hexToRgba from 'hex-to-rgba';
 import './Time.css'
+import { IColaborador } from '../../shared/interfaces/IColaborador';
 
-const Time = ({ id, nome, cor, colaboradores, aoDeletar, mudarCor, aoFavoritar }) => {
+interface TimeProps {
+    id: string
+    cor: string
+    nome: string
+    colaboradores: IColaborador[]
+    aoDeletar: (valor: string) => void
+    mudarCor: (valor: string, id: string) => void
+    aoFavoritar: (valor: string) => void
+}
+
+const Time = ({ id, nome, cor, colaboradores, aoDeletar, mudarCor, aoFavoritar }: TimeProps) => {
     return(
         (colaboradores.length > 0) ?  
 
