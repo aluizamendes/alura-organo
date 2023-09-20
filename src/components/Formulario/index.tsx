@@ -3,10 +3,19 @@ import { v4 as uuidv4 } from 'uuid'
 import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
-import CampoCor from '../CampoCor'
 import './Formulario.css'
+import { IColaborador } from '../../shared/interfaces/IColaborador'
+import { ITime } from '../../shared/interfaces/ITime'
+import CampoCor from '../CampoCor'
 
-const Formulario = (props) => {
+interface FormularioProps {
+    aoColaboradorCadastrado: (colaborador: IColaborador) => void
+    times: string[]
+    nomeTimes: string[]
+    cadastrarTime: (time: ITime) => void
+}
+
+const Formulario = (props: FormularioProps) => {
 
     const [nome, setNome] = useState("")
     const [cargo, setCargo] = useState("")
@@ -15,7 +24,7 @@ const Formulario = (props) => {
     const [nomeTime, setNomeTime] = useState("")
     const [corTime, setCorTime] = useState("")
 
-    const aoSalvar = (evt) => {
+    const aoSalvar = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault()
         console.log("Form foi submetido =>", nome, cargo, imagem, time)
 
@@ -35,7 +44,7 @@ const Formulario = (props) => {
         setTime("")
     }
 
-    const aoCriarTime = (evt) => {
+    const aoCriarTime = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault()
         props.cadastrarTime({
             nome: nomeTime,
@@ -56,7 +65,7 @@ const Formulario = (props) => {
                         <h2>Preencha os dados para criar o card do colaborador</h2>
                     </div>
 
-                    <form onSubmit={aoSalvar}>
+                    <form onSubmit={evento => aoSalvar(evento)}>
                         <CampoTexto 
                             obrigatorio={true} 
                             label="Nome" 
@@ -71,7 +80,7 @@ const Formulario = (props) => {
                             valor={cargo}
                             aoAlterado={valor => setCargo(valor)} 
                         />
-                        <CampoTexto 
+                        <CampoTexto
                             label="Imagem" 
                             placeholder="Informe a imagem" 
                             valor={imagem}
@@ -96,7 +105,7 @@ const Formulario = (props) => {
                         <h2>Preencha os dados para criar um novo time</h2>
                     </div>
 
-                    <form onSubmit={aoCriarTime}>
+                    <form onSubmit={evento => aoCriarTime(evento)}>
                         <CampoTexto 
                             obrigatorio={true} 
                             label="Nome" 

@@ -1,8 +1,16 @@
 import './CampoCor.css'
 
-const CampoCor = ({ obrigatorio, label, placeholder, valor, aoAlterado }) => {
+interface CampoCorProps {
+    obrigatorio: boolean
+    label: string
+    placeholder?: string
+    valor: string
+    aoAlterado: (valor: string) => void
+}
 
-    const aoSelecionado = (evt) => {
+export default function CampoCor({ obrigatorio, label, placeholder, valor, aoAlterado }: CampoCorProps) {
+
+    const aoSelecionado = (evt: React.ChangeEvent<HTMLInputElement>) => {
         aoAlterado(evt.target.value)
     }
 
@@ -21,5 +29,3 @@ const CampoCor = ({ obrigatorio, label, placeholder, valor, aoAlterado }) => {
         </>
     )
 }
-
-export default CampoCor

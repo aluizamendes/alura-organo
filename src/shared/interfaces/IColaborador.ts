@@ -4,4 +4,5 @@ export interface IColaborador {
     cargo: string
     imagem: string
     favorito: boolean
+    time?: string
 }
