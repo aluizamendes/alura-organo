@@ -10,9 +10,8 @@ import CampoCor from '../CampoCor'
 
 interface FormularioProps {
     aoColaboradorCadastrado: (colaborador: IColaborador) => void
-    times: string[]
     nomeTimes: string[]
-    cadastrarTime: (time: ITime) => void
+    cadastrarTime: (novoTime: ITime) => void
 }
 
 const Formulario = (props: FormularioProps) => {

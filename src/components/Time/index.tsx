@@ -50,7 +50,7 @@ const Time = ({ id, nome, cor, colaboradores, aoDeletar, mudarCor, aoFavoritar }
 
             
         </section>
-        : ""
+        : <></>
     )
 }
 

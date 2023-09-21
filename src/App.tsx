@@ -4,6 +4,8 @@ import Banner from './components/Banner'
 import CampoTexto from './components/CampoTexto'
 import Formulario from './components/Formulario'
 import Time from './components/Time'
+import { IColaborador } from './shared/interfaces/IColaborador'
+import { ITime } from './shared/interfaces/ITime'
 
 function App() {
 
@@ -45,9 +47,9 @@ function App() {
     }
   ])
   
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState<IColaborador[]>([])
 
-  const mudarCorDoTime = (cor, id) => {
+  const mudarCorDoTime = (cor: string, id: string) => {
     setTimes(times.map((time) => {
       if (time.id === id) {
         time.cor = cor
@@ -56,22 +58,22 @@ function App() {
     }))
   }
 
-  const deletarColaborador = (id) => {
+  const deletarColaborador = (id: string) => {
     setColaboradores(colaboradores.filter((colaborador) => colaborador.id != id))
   }
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
+  const aoNovoColaboradorAdicionado = (colaborador: IColaborador) => {
     console.log(colaborador)
     setColaboradores([...colaboradores, colaborador])
 
   }
 
-  const cadastrarTime = (novoTime) => {
+  const cadastrarTime = (novoTime: ITime) => {
     setTimes([...times, { ...novoTime, id: uuidv4() }])
 
   }
 
-  const resolverFavorito = (id) => {
+  const resolverFavorito = (id: string) => {
     setColaboradores(colaboradores.map((colaborador) => {
       if (colaborador.id === id) colaborador.favorito = !colaborador.favorito
       return colaborador
