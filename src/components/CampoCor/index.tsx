@@ -8,7 +8,7 @@ interface CampoCorProps {
     aoAlterado: (valor: string) => void
 }
 
-export default function CampoCor({ obrigatorio, label, placeholder, valor, aoAlterado }: CampoCorProps) {
+export default function CampoCor({ obrigatorio, label, valor, aoAlterado }: CampoCorProps) {
 
     const aoSelecionado = (evt: React.ChangeEvent<HTMLInputElement>) => {
         aoAlterado(evt.target.value)
